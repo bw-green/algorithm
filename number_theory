@@ -1,1 +1,33 @@
 정수론 정리하기
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int LCM(int a,int b);
+int GCD(int a, int b);
+int main(){
+	ios::sync_with_stdio(0); cin.tie(0);
+	int n;
+	cin>>n;
+	while(n--){
+	int a,b;
+	cin>>a>>b;
+	cout<<LCM(a,b)<<"\n";
+	}
+	return 0;
+}
+int GCD(int a,int b){
+	int big=a,small=b;
+	while(b!=0){
+		int temp=a%b;
+		a=b;
+		b=temp;
+	}
+	return a;
+}
+int LCM(int a,int b){
+	int temp=GCD(a,b);
+	return (a/temp)*b;
+}
